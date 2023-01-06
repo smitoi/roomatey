@@ -1,5 +1,6 @@
 package com.smitoi.roomatey.entity;
 
+import com.smitoi.roomatey.entity.definitions.Searchable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -16,7 +17,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Entity
 @Table(name = "tasks")
-public class Task {
+public class Task implements Searchable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -48,4 +49,9 @@ public class Task {
     @NotBlank
     @JoinColumn(name = "created_by_id", nullable = false)
     private User creator;
+
+    @Override
+    public String[] getSearchableColumns() {
+        return new String[]{"description", "category"};
+    }
 }

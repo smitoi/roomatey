@@ -1,5 +1,6 @@
 package com.smitoi.roomatey.entity;
 
+import com.smitoi.roomatey.entity.definitions.Searchable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -17,7 +18,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Entity
 @Table(name = "notes")
-public class Note {
+public class Note implements Searchable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,4 +41,9 @@ public class Note {
     @NotBlank
     @JoinColumn(name = "created_by_id", nullable = false)
     private User creator;
+
+    @Override
+    public String[] getSearchableColumns() {
+        return new String[]{"content",};
+    }
 }
