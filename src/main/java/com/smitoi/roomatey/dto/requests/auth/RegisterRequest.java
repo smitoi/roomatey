@@ -1,4 +1,4 @@
-package com.smitoi.roomatey.dto.requests;
+package com.smitoi.roomatey.dto.requests.auth;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginRequest {
+public class RegisterRequest {
+
+    @NotBlank
+    private String name;
 
     @NotBlank
     private String email;
@@ -18,3 +21,4 @@ public class LoginRequest {
     @NotBlank
     private String password;
 }
+

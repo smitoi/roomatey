@@ -40,12 +40,12 @@ public class Task implements Searchable {
     @UpdateTimestamp
     private Timestamp updatedAt;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     @NotBlank
     @JoinColumn(name = "assigned_to_id", nullable = false)
     private User assignee;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @NotBlank
     @JoinColumn(name = "created_by_id", nullable = false)
     private User creator;

@@ -20,7 +20,7 @@ public class ExceptionControllerAdvice {
     @ExceptionHandler({Exception.class})
     public ResponseEntity<String> handleException(Exception exception) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body(exception.getMessage());
+                .body(exception.getClass() + ": " + exception.getMessage());
     }
 
 }

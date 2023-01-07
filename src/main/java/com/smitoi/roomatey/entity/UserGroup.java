@@ -20,16 +20,19 @@ import java.sql.Timestamp;
 })
 public class UserGroup {
 
+    public static final String ROLE_OWNER = "owner";
+    public static final String ROLE_MEMBER = "member";
+    public static final String ROLE_GUEST = "guest";
+
+
     @EmbeddedId
     private UserGroupKey id;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @NotBlank
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", nullable = false, insertable = false, updatable = false)
     private User user;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @NotBlank
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "group_id", nullable = false, insertable = false, updatable = false)
     private Group group;
 

@@ -37,7 +37,7 @@ public class Note implements Searchable {
     @UpdateTimestamp
     private Timestamp updatedAt;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @NotBlank
     @JoinColumn(name = "created_by_id", nullable = false)
     private User creator;

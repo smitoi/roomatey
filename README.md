@@ -8,10 +8,11 @@ A simple backend for a minimal collaborative to do application, made as a projec
 
 - [x] As a guest I want to register.
 - [x] As a user I want to login.
-- [ ] As a user I want to create a group.
-- [ ] As a user I want to invite more users to a group I belong to.
+- [x] As a user I want to create a group.
+- [x] As a user I want to invite a guest to join a group I belong to.
+- [x] As a user I want to invite more users to a group I belong to.
 - [ ] ~~As a guest I want to accept the invite by registering.~~
-- [ ] As a user I want to accept an invite.
+- [ ] ~~As a user I want to accept an invitation.~~
 - [ ] As a user I want to post a note to a group I belong to.
 - [ ] As a user I want to post a task to a group I belong to.
 - [ ] As a user I want to mark a task as complete.
@@ -23,14 +24,14 @@ A simple backend for a minimal collaborative to do application, made as a projec
 ### Goals
 
 - [ ] One repository per entity
-- [ ] At least 5 endpoints (for all the features in the MVP)
+- [x] At least 5 endpoints (for all the features in the MVP)
 - [ ] Beans for services, one service per feature.
-- [ ] At least one interface implemented by minimum two classes.
-- [ ] Data persisted in the database, at least 6 entities, at least 3 relations.
+- [x] At least one interface implemented by minimum two classes.
+- [x] Data persisted in the database, at least 6 entities, at least 3 relations.
 - [ ] Unit tests for all REST endpoints.
 - [ ] Swagger documentation.
-- [ ] Custom exceptions, handle exception in ControllerAdvice.
-- [ ] Endpoints should return a ```ResponseEntity<Object>``` with relevant statuses.
+- [x] Custom exceptions, handle exception in ControllerAdvice.
+- [x] Endpoints should return a ```ResponseEntity<Object>``` with relevant statuses.
 - [ ] Custom validation for fields.
 
 ### Resources

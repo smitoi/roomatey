@@ -1,7 +1,7 @@
 package com.smitoi.roomatey.services;
 
-import com.smitoi.roomatey.dto.requests.LoginRequest;
-import com.smitoi.roomatey.dto.requests.RegisterRequest;
+import com.smitoi.roomatey.dto.requests.auth.LoginRequest;
+import com.smitoi.roomatey.dto.requests.auth.RegisterRequest;
 import com.smitoi.roomatey.dto.responses.AuthenticationResponse;
 import com.smitoi.roomatey.entity.User;
 import com.smitoi.roomatey.repository.UserRepository;

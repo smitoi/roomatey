@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -19,6 +20,11 @@ import java.util.UUID;
 @Entity
 @Table(name = "invitations")
 public class Invitation {
+
+    public static final String STATUS_SENT = "sent";
+    public static final String STATUS_ACCEPTED = "accepted";
+    public static final String STATUS_EXPIRED = "expired";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,7 +33,6 @@ public class Invitation {
     @Column(name = "uuid", updatable = false, nullable = false)
     private UUID uuid;
 
-    @NotBlank
     @Column(name = "status", nullable = false)
     private String status;
 
@@ -46,13 +51,11 @@ public class Invitation {
     @UpdateTimestamp
     private Timestamp updatedAt;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @NotBlank
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sent_by_id", nullable = false)
     private User sender;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @NotBlank
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id", nullable = false)
     private Group group;
 }

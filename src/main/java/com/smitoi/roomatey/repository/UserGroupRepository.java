@@ -1,15 +1,15 @@
 package com.smitoi.roomatey.repository;
 
+import com.smitoi.roomatey.entity.Group;
 import com.smitoi.roomatey.entity.User;
+import com.smitoi.roomatey.entity.UserGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserGroupRepository extends JpaRepository<UserGroup, Long> {
+    Optional<UserGroup> findByGroupAndUser(Group group, User user);
 
-    Optional<User> findByEmail(String email);
-
-    Boolean existsByEmail(String email);
 }
