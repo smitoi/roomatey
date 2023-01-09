@@ -51,6 +51,11 @@ public class Event implements Searchable {
     @JoinColumn(name = "created_by_id", nullable = false)
     private User creator;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @NotBlank
+    @JoinColumn(name = "group_id", nullable = false)
+    private Group group;
+
     @Override
     public String[] getSearchableColumns() {
         return new String[]{"title",};

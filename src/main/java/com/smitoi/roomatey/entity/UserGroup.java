@@ -1,5 +1,7 @@
 package com.smitoi.roomatey.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.smitoi.roomatey.entity.keys.UserGroupKey;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -18,12 +20,12 @@ import java.sql.Timestamp;
 @Table(name = "users_groups", uniqueConstraints = {
         @UniqueConstraint(columnNames = {"group_id", "user_id"}),
 })
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class UserGroup {
 
     public static final String ROLE_OWNER = "owner";
     public static final String ROLE_MEMBER = "member";
     public static final String ROLE_GUEST = "guest";
-
 
     @EmbeddedId
     private UserGroupKey id;

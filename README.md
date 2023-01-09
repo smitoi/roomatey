@@ -7,23 +7,23 @@ A simple backend for a minimal collaborative to do application, made as a projec
 #### Note: crossed out stories are ones that will not be implemented for the MVP 
 
 - [x] As a guest I want to register.
-- [x] As a user I want to login.
+- [x] As a user I want to log in.
 - [x] As a user I want to create a group.
 - [x] As a user I want to invite a guest to join a group I belong to.
-- [x] As a user I want to invite more users to a group I belong to.
+- [x] As a user I want to invite another user to a group I belong to.
 - [ ] ~~As a guest I want to accept the invite by registering.~~
 - [ ] ~~As a user I want to accept an invitation.~~
-- [ ] As a user I want to post a note to a group I belong to.
+- [x] As a user I want to post a note to a group I belong to.
 - [ ] As a user I want to post a task to a group I belong to.
 - [ ] As a user I want to mark a task as complete.
 - [ ] ~~As a user I want to post an event to a group I belong to.~~
-- [ ] As a user I want to search through notes.
+- [x] As a user I want to search through notes.
 - [ ] As a user I want to search through tasks.
-- [ ] As a user I want to search through events.
+- ~~[ ] As a user I want to search through events.~~
 
 ### Goals
 
-- [ ] One repository per entity
+- [x] One repository per entity
 - [x] At least 5 endpoints (for all the features in the MVP)
 - [ ] Beans for services, one service per feature.
 - [x] At least one interface implemented by minimum two classes.
@@ -32,7 +32,7 @@ A simple backend for a minimal collaborative to do application, made as a projec
 - [ ] Swagger documentation.
 - [x] Custom exceptions, handle exception in ControllerAdvice.
 - [x] Endpoints should return a ```ResponseEntity<Object>``` with relevant statuses.
-- [ ] Custom validation for fields.
+- [x] Custom validation for fields.
 
 ### Resources
 

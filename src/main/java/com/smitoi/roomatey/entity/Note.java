@@ -1,5 +1,6 @@
 package com.smitoi.roomatey.entity;
 
+import com.smitoi.roomatey.entity.definitions.Ownable;
 import com.smitoi.roomatey.entity.definitions.Searchable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -18,7 +19,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Entity
 @Table(name = "notes")
-public class Note implements Searchable {
+public class Note implements Searchable, Ownable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -37,13 +38,21 @@ public class Note implements Searchable {
     @UpdateTimestamp
     private Timestamp updatedAt;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @NotBlank
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by_id", nullable = false)
     private User creator;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "group_id", nullable = false)
+    private Group group;
 
     @Override
     public String[] getSearchableColumns() {
         return new String[]{"content",};
+    }
+
+    @Override
+    public boolean isOwnedBy(User user) {
+        return getCreator().getId().equals(user.getId());
     }
 }
