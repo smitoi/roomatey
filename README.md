@@ -14,18 +14,18 @@ A simple backend for a minimal collaborative to do application, made as a projec
 - [ ] ~~As a guest I want to accept the invite by registering.~~
 - [ ] ~~As a user I want to accept an invitation.~~
 - [x] As a user I want to post a note to a group I belong to.
-- [ ] As a user I want to post a task to a group I belong to.
-- [ ] As a user I want to mark a task as complete.
+- [x] As a user I want to post a task to a group I belong to.
+- [x] As a user I want to mark a task as complete.
 - [ ] ~~As a user I want to post an event to a group I belong to.~~
-- [x] As a user I want to search through notes.
+- [ ] As a user I want to search through notes.
 - [ ] As a user I want to search through tasks.
-- ~~[ ] As a user I want to search through events.~~
+- [ ] ~~As a user I want to search through events.~~
 
 ### Goals
 
 - [x] One repository per entity
 - [x] At least 5 endpoints (for all the features in the MVP)
-- [ ] Beans for services, one service per feature.
+- [x] Beans for services, one service per feature.
 - [x] At least one interface implemented by minimum two classes.
 - [x] Data persisted in the database, at least 6 entities, at least 3 relations.
 - [ ] Unit tests for all REST endpoints.
