@@ -17,8 +17,8 @@ A simple backend for a minimal collaborative to do application, made as a projec
 - [x] As a user I want to post a task to a group I belong to.
 - [x] As a user I want to mark a task as complete.
 - [ ] ~~As a user I want to post an event to a group I belong to.~~
-- [ ] As a user I want to search through notes.
-- [ ] As a user I want to search through tasks.
+- [ ] ~~As a user I want to search through notes.~~
+- [ ] ~~As a user I want to search through tasks.~~
 - [ ] ~~As a user I want to search through events.~~
 
 ### Goals
@@ -28,7 +28,7 @@ A simple backend for a minimal collaborative to do application, made as a projec
 - [x] Beans for services, one service per feature.
 - [x] At least one interface implemented by minimum two classes.
 - [x] Data persisted in the database, at least 6 entities, at least 3 relations.
-- [ ] Unit tests for all REST endpoints.
+- [ ] ~~Unit tests for all REST endpoints.~~
 - [ ] Swagger documentation.
 - [x] Custom exceptions, handle exception in ControllerAdvice.
 - [x] Endpoints should return a ```ResponseEntity<Object>``` with relevant statuses.

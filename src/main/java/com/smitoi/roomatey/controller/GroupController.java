@@ -11,6 +11,8 @@ import com.smitoi.roomatey.entity.Group;
 import com.smitoi.roomatey.entity.Invitation;
 import com.smitoi.roomatey.entity.UserGroup;
 import com.smitoi.roomatey.services.GroupService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +25,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/groups")
 @RequiredArgsConstructor
+@Tag(name = "Groups", description = "Groups related endpoints.")
 public class GroupController extends BaseController {
     @Autowired
     private final GroupService service;
 
     @GetMapping("/")
+    @Operation(summary = "Index", description = "View all groups that you are part of.")
     public ResponseEntity<List<UserGroupDto>> index() {
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -35,6 +39,7 @@ public class GroupController extends BaseController {
     }
 
     @PostMapping("/")
+    @Operation(summary = "Store", description = "Create a new group.")
     public ResponseEntity<GroupDto> store(@Valid @RequestBody CreateGroupRequest request) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -42,6 +47,7 @@ public class GroupController extends BaseController {
     }
 
     @PutMapping("/{id}")
+    @Operation(summary = "Update", description = "Update an existing group.")
     public ResponseEntity<GroupDto> update(@PathVariable Long id, @Valid @RequestBody UpdateGroupRequest request) {
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -49,6 +55,7 @@ public class GroupController extends BaseController {
     }
 
     @PostMapping("/{id}/invite-user")
+    @Operation(summary = "InviteUser", description = "Invite a registered user to your group.")
     public ResponseEntity<UserGroupDto> inviteUser(@PathVariable Long id, @Valid @RequestBody InviteUserToGroupRequest request) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -56,6 +63,7 @@ public class GroupController extends BaseController {
     }
 
     @PostMapping("/{id}/invite-guest")
+    @Operation(summary = "InviteGuest", description = "Invite a guest to your group.")
     public ResponseEntity<InvitationDto> inviteGuest(@PathVariable Long id, @Valid @RequestBody InviteGuestToGroupRequest request) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
